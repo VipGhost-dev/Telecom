@@ -30,4 +30,4 @@
 
 ## Авторы
 
-* **Ледров Егор** - *Разработчика* - [Vip_Ghost](https://github.com/VipGhost-dev)
+* **Ледров Егор** - *Разработчик* - [Vip_Ghost](https://github.com/VipGhost-dev)
