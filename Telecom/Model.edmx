@@ -1,0 +1,1130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CRM13Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Citys">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Square" Type="float" Nullable="false" />
+          <Property Name="Population" Type="int" Nullable="false" />
+          <Property Name="CountMetro" Type="int" Nullable="false" />
+          <Property Name="IDTypeBuilding" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecondName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="IDRole" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="IDGender" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="IDTypeEquipment" Type="int" Nullable="false" />
+          <Property Name="InventoryNumberOS" Type="int" Nullable="false" />
+          <Property Name="IDEmployee" Type="int" />
+          <Property Name="IDSubscriber" Type="int" Nullable="false" />
+          <Property Name="DateInstall" Type="date" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationAddresses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrefixCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDistrict" Type="int" Nullable="false" />
+          <Property Name="IDCity" Type="int" Nullable="false" />
+          <Property Name="IDStreet" Type="int" />
+          <Property Name="NumberHouse" Type="int" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDModule" Type="int" Nullable="false" />
+          <Property Name="IDRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ports">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTypePorts" Type="int" Nullable="false" />
+          <Property Name="IDEquipment" Type="int" Nullable="false" />
+          <Property Name="IPaddress" Type="nvarchar" MaxLength="30" />
+          <Property Name="MACaddress" Type="nvarchar" MaxLength="30" />
+          <Property Name="CountPorts" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Streets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDGender" Type="int" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegistrationAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDLocationAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialPasport" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="NumberPasport" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DivisionCode" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateIssue" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypesBuilding">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeBuilding" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesModules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesPorts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Port" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Districts__IDTyp__1EA48E88">
+          <End Role="TypesBuilding" Type="Self.TypesBuilding" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesBuilding">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="IDTypeBuilding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__IDGen__0A9D95DB">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="IDGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__IDRol__09A971A2">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDEmp__2BFE89A6">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDSub__2CF2ADDF">
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDTyp__2A164134">
+          <End Role="TypesEquipment" Type="Self.TypesEquipment" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesEquipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDTypeEquipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__Inven__2B0A656D">
+          <End Role="OS" Type="Self.OS" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="InventoryNumberOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationA__IDCit__22751F6C">
+          <End Role="Citys" Type="Self.Citys" Multiplicity="1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Citys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationA__IDDis__2180FB33">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationA__IDStr__236943A5">
+          <End Role="Streets" Type="Self.Streets" Multiplicity="0..1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Streets">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Modules__IDModul__02084FDA">
+          <End Role="TypesModules" Type="Self.TypesModules" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesModules">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="IDModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Modules__IDRole__02FC7413">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ports__IDEquipme__32AB8735">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Ports" Type="Self.Ports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ports">
+              <PropertyRef Name="IDEquipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ports__IDTypePor__31B762FC">
+          <End Role="TypesPorts" Type="Self.TypesPorts" Multiplicity="1" />
+          <End Role="Ports" Type="Self.Ports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesPorts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ports">
+              <PropertyRef Name="IDTypePorts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscribe__IDGen__2645B050">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="IDGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscribe__IDLoc__2739D489">
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationAddresses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="IDLocationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CRM13ModelContainer">
+          <EntitySet Name="Citys" EntityType="Self.Citys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationAddresses" EntityType="Self.LocationAddresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OS" EntityType="Self.OS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ports" EntityType="Self.Ports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Streets" EntityType="Self.Streets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesBuilding" EntityType="Self.TypesBuilding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesEquipment" EntityType="Self.TypesEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesModules" EntityType="Self.TypesModules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesPorts" EntityType="Self.TypesPorts" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Districts__IDTyp__1EA48E88" Association="Self.FK__Districts__IDTyp__1EA48E88">
+            <End Role="TypesBuilding" EntitySet="TypesBuilding" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__IDGen__0A9D95DB" Association="Self.FK__Employees__IDGen__0A9D95DB">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__IDRol__09A971A2" Association="Self.FK__Employees__IDRol__09A971A2">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDEmp__2BFE89A6" Association="Self.FK__Equipment__IDEmp__2BFE89A6">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDSub__2CF2ADDF" Association="Self.FK__Equipment__IDSub__2CF2ADDF">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDTyp__2A164134" Association="Self.FK__Equipment__IDTyp__2A164134">
+            <End Role="TypesEquipment" EntitySet="TypesEquipment" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__Inven__2B0A656D" Association="Self.FK__Equipment__Inven__2B0A656D">
+            <End Role="OS" EntitySet="OS" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationA__IDCit__22751F6C" Association="Self.FK__LocationA__IDCit__22751F6C">
+            <End Role="Citys" EntitySet="Citys" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationA__IDDis__2180FB33" Association="Self.FK__LocationA__IDDis__2180FB33">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationA__IDStr__236943A5" Association="Self.FK__LocationA__IDStr__236943A5">
+            <End Role="Streets" EntitySet="Streets" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Modules__IDModul__02084FDA" Association="Self.FK__Modules__IDModul__02084FDA">
+            <End Role="TypesModules" EntitySet="TypesModules" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Modules__IDRole__02FC7413" Association="Self.FK__Modules__IDRole__02FC7413">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ports__IDEquipme__32AB8735" Association="Self.FK__Ports__IDEquipme__32AB8735">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Ports" EntitySet="Ports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ports__IDTypePor__31B762FC" Association="Self.FK__Ports__IDTypePor__31B762FC">
+            <End Role="TypesPorts" EntitySet="TypesPorts" />
+            <End Role="Ports" EntitySet="Ports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscribe__IDGen__2645B050" Association="Self.FK__Subscribe__IDGen__2645B050">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscribe__IDLoc__2739D489" Association="Self.FK__Subscribe__IDLoc__2739D489">
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRM13Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Citys">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LocationAddresses" Relationship="Self.FK__LocationA__IDCit__22751F6C" FromRole="Citys" ToRole="LocationAddresses" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Square" Type="Double" Nullable="false" />
+          <Property Name="Population" Type="Int32" Nullable="false" />
+          <Property Name="CountMetro" Type="Int32" Nullable="false" />
+          <Property Name="IDTypeBuilding" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypesBuilding" Relationship="Self.FK__Districts__IDTyp__1EA48E88" FromRole="Districts" ToRole="TypesBuilding" />
+          <NavigationProperty Name="LocationAddresses" Relationship="Self.FK__LocationA__IDDis__2180FB33" FromRole="Districts" ToRole="LocationAddresses" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecondName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDRole" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="IDGender" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK__Employees__IDGen__0A9D95DB" FromRole="Employees" ToRole="Genders" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Employees__IDRol__09A971A2" FromRole="Employees" ToRole="Roles" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Equipment__IDEmp__2BFE89A6" FromRole="Employees" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IDTypeEquipment" Type="Int32" Nullable="false" />
+          <Property Name="InventoryNumberOS" Type="Int32" Nullable="false" />
+          <Property Name="IDEmployee" Type="Int32" />
+          <Property Name="IDSubscriber" Type="Int32" Nullable="false" />
+          <Property Name="DateInstall" Type="DateTime" Precision="0" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Equipment__IDEmp__2BFE89A6" FromRole="Equipment" ToRole="Employees" />
+          <NavigationProperty Name="Subscribers" Relationship="Self.FK__Equipment__IDSub__2CF2ADDF" FromRole="Equipment" ToRole="Subscribers" />
+          <NavigationProperty Name="TypesEquipment" Relationship="Self.FK__Equipment__IDTyp__2A164134" FromRole="Equipment" ToRole="TypesEquipment" />
+          <NavigationProperty Name="OS" Relationship="Self.FK__Equipment__Inven__2B0A656D" FromRole="Equipment" ToRole="OS" />
+          <NavigationProperty Name="Ports" Relationship="Self.FK__Ports__IDEquipme__32AB8735" FromRole="Equipment" ToRole="Ports" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__IDGen__0A9D95DB" FromRole="Genders" ToRole="Employees" />
+          <NavigationProperty Name="Subscribers" Relationship="Self.FK__Subscribe__IDGen__2645B050" FromRole="Genders" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="LocationAddresses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrefixCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDDistrict" Type="Int32" Nullable="false" />
+          <Property Name="IDCity" Type="Int32" Nullable="false" />
+          <Property Name="IDStreet" Type="Int32" />
+          <Property Name="NumberHouse" Type="Int32" />
+          <NavigationProperty Name="Citys" Relationship="Self.FK__LocationA__IDCit__22751F6C" FromRole="LocationAddresses" ToRole="Citys" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK__LocationA__IDDis__2180FB33" FromRole="LocationAddresses" ToRole="Districts" />
+          <NavigationProperty Name="Streets" Relationship="Self.FK__LocationA__IDStr__236943A5" FromRole="LocationAddresses" ToRole="Streets" />
+          <NavigationProperty Name="Subscribers" Relationship="Self.FK__Subscribe__IDLoc__2739D489" FromRole="LocationAddresses" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDModule" Type="Int32" Nullable="false" />
+          <Property Name="IDRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypesModules" Relationship="Self.FK__Modules__IDModul__02084FDA" FromRole="Modules" ToRole="TypesModules" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Modules__IDRole__02FC7413" FromRole="Modules" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="OS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Equipment__Inven__2B0A656D" FromRole="OS" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Ports">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTypePorts" Type="Int32" Nullable="false" />
+          <Property Name="IDEquipment" Type="Int32" Nullable="false" />
+          <Property Name="IPaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MACaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CountPorts" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Ports__IDEquipme__32AB8735" FromRole="Ports" ToRole="Equipment" />
+          <NavigationProperty Name="TypesPorts" Relationship="Self.FK__Ports__IDTypePor__31B762FC" FromRole="Ports" ToRole="TypesPorts" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__IDRol__09A971A2" FromRole="Roles" ToRole="Employees" />
+          <NavigationProperty Name="Modules" Relationship="Self.FK__Modules__IDRole__02FC7413" FromRole="Roles" ToRole="Modules" />
+        </EntityType>
+        <EntityType Name="Streets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LocationAddresses" Relationship="Self.FK__LocationA__IDStr__236943A5" FromRole="Streets" ToRole="LocationAddresses" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDGender" Type="Int32" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegistrationAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDLocationAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialPasport" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberPasport" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DivisionCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IssuedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Equipment__IDSub__2CF2ADDF" FromRole="Subscribers" ToRole="Equipment" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK__Subscribe__IDGen__2645B050" FromRole="Subscribers" ToRole="Genders" />
+          <NavigationProperty Name="LocationAddresses" Relationship="Self.FK__Subscribe__IDLoc__2739D489" FromRole="Subscribers" ToRole="LocationAddresses" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypesBuilding">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeBuilding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK__Districts__IDTyp__1EA48E88" FromRole="TypesBuilding" ToRole="Districts" />
+        </EntityType>
+        <EntityType Name="TypesEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Equipment__IDTyp__2A164134" FromRole="TypesEquipment" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="TypesModules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Module" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Modules" Relationship="Self.FK__Modules__IDModul__02084FDA" FromRole="TypesModules" ToRole="Modules" />
+        </EntityType>
+        <EntityType Name="TypesPorts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Port" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ports" Relationship="Self.FK__Ports__IDTypePor__31B762FC" FromRole="TypesPorts" ToRole="Ports" />
+        </EntityType>
+        <Association Name="FK__LocationA__IDCit__22751F6C">
+          <End Role="Citys" Type="Self.Citys" Multiplicity="1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Citys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Districts__IDTyp__1EA48E88">
+          <End Role="TypesBuilding" Type="Self.TypesBuilding" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesBuilding">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="IDTypeBuilding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationA__IDDis__2180FB33">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__IDGen__0A9D95DB">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="IDGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__IDRol__09A971A2">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDEmp__2BFE89A6">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDSub__2CF2ADDF">
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__IDTyp__2A164134">
+          <End Role="TypesEquipment" Type="Self.TypesEquipment" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesEquipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDTypeEquipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__Inven__2B0A656D">
+          <End Role="OS" Type="Self.OS" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="InventoryNumberOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ports__IDEquipme__32AB8735">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Ports" Type="Self.Ports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ports">
+              <PropertyRef Name="IDEquipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscribe__IDGen__2645B050">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="IDGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationA__IDStr__236943A5">
+          <End Role="Streets" Type="Self.Streets" Multiplicity="0..1" />
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Streets">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationAddresses">
+              <PropertyRef Name="IDStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscribe__IDLoc__2739D489">
+          <End Role="LocationAddresses" Type="Self.LocationAddresses" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationAddresses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="IDLocationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Modules__IDModul__02084FDA">
+          <End Role="TypesModules" Type="Self.TypesModules" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesModules">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="IDModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Modules__IDRole__02FC7413">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ports__IDTypePor__31B762FC">
+          <End Role="TypesPorts" Type="Self.TypesPorts" Multiplicity="1" />
+          <End Role="Ports" Type="Self.Ports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesPorts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ports">
+              <PropertyRef Name="IDTypePorts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Citys" EntityType="Self.Citys" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="LocationAddresses" EntityType="Self.LocationAddresses" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" />
+          <EntitySet Name="OS" EntityType="Self.OS" />
+          <EntitySet Name="Ports" EntityType="Self.Ports" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Streets" EntityType="Self.Streets" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscribers" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypesBuilding" EntityType="Self.TypesBuilding" />
+          <EntitySet Name="TypesEquipment" EntityType="Self.TypesEquipment" />
+          <EntitySet Name="TypesModules" EntityType="Self.TypesModules" />
+          <EntitySet Name="TypesPorts" EntityType="Self.TypesPorts" />
+          <AssociationSet Name="FK__LocationA__IDCit__22751F6C" Association="Self.FK__LocationA__IDCit__22751F6C">
+            <End Role="Citys" EntitySet="Citys" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Districts__IDTyp__1EA48E88" Association="Self.FK__Districts__IDTyp__1EA48E88">
+            <End Role="TypesBuilding" EntitySet="TypesBuilding" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationA__IDDis__2180FB33" Association="Self.FK__LocationA__IDDis__2180FB33">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__IDGen__0A9D95DB" Association="Self.FK__Employees__IDGen__0A9D95DB">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__IDRol__09A971A2" Association="Self.FK__Employees__IDRol__09A971A2">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDEmp__2BFE89A6" Association="Self.FK__Equipment__IDEmp__2BFE89A6">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDSub__2CF2ADDF" Association="Self.FK__Equipment__IDSub__2CF2ADDF">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__IDTyp__2A164134" Association="Self.FK__Equipment__IDTyp__2A164134">
+            <End Role="TypesEquipment" EntitySet="TypesEquipment" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__Inven__2B0A656D" Association="Self.FK__Equipment__Inven__2B0A656D">
+            <End Role="OS" EntitySet="OS" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ports__IDEquipme__32AB8735" Association="Self.FK__Ports__IDEquipme__32AB8735">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Ports" EntitySet="Ports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscribe__IDGen__2645B050" Association="Self.FK__Subscribe__IDGen__2645B050">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationA__IDStr__236943A5" Association="Self.FK__LocationA__IDStr__236943A5">
+            <End Role="Streets" EntitySet="Streets" />
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscribe__IDLoc__2739D489" Association="Self.FK__Subscribe__IDLoc__2739D489">
+            <End Role="LocationAddresses" EntitySet="LocationAddresses" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Modules__IDModul__02084FDA" Association="Self.FK__Modules__IDModul__02084FDA">
+            <End Role="TypesModules" EntitySet="TypesModules" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Modules__IDRole__02FC7413" Association="Self.FK__Modules__IDRole__02FC7413">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ports__IDTypePor__31B762FC" Association="Self.FK__Ports__IDTypePor__31B762FC">
+            <End Role="TypesPorts" EntitySet="TypesPorts" />
+            <End Role="Ports" EntitySet="Ports" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CRM13ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Citys">
+            <EntityTypeMapping TypeName="CRM13Model.Citys">
+              <MappingFragment StoreEntitySet="Citys">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="CRM13Model.Districts">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="CountMetro" ColumnName="CountMetro" />
+                <ScalarProperty Name="IDTypeBuilding" ColumnName="IDTypeBuilding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CRM13Model.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="CRM13Model.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="IDTypeEquipment" ColumnName="IDTypeEquipment" />
+                <ScalarProperty Name="InventoryNumberOS" ColumnName="InventoryNumberOS" />
+                <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
+                <ScalarProperty Name="IDSubscriber" ColumnName="IDSubscriber" />
+                <ScalarProperty Name="DateInstall" ColumnName="DateInstall" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="CRM13Model.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationAddresses">
+            <EntityTypeMapping TypeName="CRM13Model.LocationAddresses">
+              <MappingFragment StoreEntitySet="LocationAddresses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+                <ScalarProperty Name="IDDistrict" ColumnName="IDDistrict" />
+                <ScalarProperty Name="IDCity" ColumnName="IDCity" />
+                <ScalarProperty Name="IDStreet" ColumnName="IDStreet" />
+                <ScalarProperty Name="NumberHouse" ColumnName="NumberHouse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="CRM13Model.Modules">
+              <MappingFragment StoreEntitySet="Modules">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDModule" ColumnName="IDModule" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OS">
+            <EntityTypeMapping TypeName="CRM13Model.OS">
+              <MappingFragment StoreEntitySet="OS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ports">
+            <EntityTypeMapping TypeName="CRM13Model.Ports">
+              <MappingFragment StoreEntitySet="Ports">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDTypePorts" ColumnName="IDTypePorts" />
+                <ScalarProperty Name="IDEquipment" ColumnName="IDEquipment" />
+                <ScalarProperty Name="IPaddress" ColumnName="IPaddress" />
+                <ScalarProperty Name="MACaddress" ColumnName="MACaddress" />
+                <ScalarProperty Name="CountPorts" ColumnName="CountPorts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CRM13Model.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Streets">
+            <EntityTypeMapping TypeName="CRM13Model.Streets">
+              <MappingFragment StoreEntitySet="Streets">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="CRM13Model.Subscribers">
+              <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+                <ScalarProperty Name="IDLocationAddress" ColumnName="IDLocationAddress" />
+                <ScalarProperty Name="SerialPasport" ColumnName="SerialPasport" />
+                <ScalarProperty Name="NumberPasport" ColumnName="NumberPasport" />
+                <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CRM13Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesBuilding">
+            <EntityTypeMapping TypeName="CRM13Model.TypesBuilding">
+              <MappingFragment StoreEntitySet="TypesBuilding">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TypeBuilding" ColumnName="TypeBuilding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesEquipment">
+            <EntityTypeMapping TypeName="CRM13Model.TypesEquipment">
+              <MappingFragment StoreEntitySet="TypesEquipment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesModules">
+            <EntityTypeMapping TypeName="CRM13Model.TypesModules">
+              <MappingFragment StoreEntitySet="TypesModules">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesPorts">
+            <EntityTypeMapping TypeName="CRM13Model.TypesPorts">
+              <MappingFragment StoreEntitySet="TypesPorts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
